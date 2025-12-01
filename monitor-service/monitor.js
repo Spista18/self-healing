@@ -51,6 +51,8 @@ async function checkStatus() {
         const start = Date.now();
         const response = await axios.get(CRITICAL_URL, { timeout: 2000 });
         const latency = (Date.now() - start) / 1000;
+        const body = response.data;
+        const memory = body.memory;
 
         //EXERCISE 1: SHOW THE MEMORY IN THE LOG AND ADD RECOVER CONDITION ON MEMORY
         console.log(`Status: ${response.status}, Latency: ${latency.toFixed(3)}s`);
